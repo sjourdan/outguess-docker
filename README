@@ -1,3 +1,23 @@
+# Outguess Docker container
+
+An easy way to outguess stuff.
+
+* Embed message.txt into original.jpg:
+
+    $ cat message.txt
+    all work and no play makes Jack a dull boy
+    $ docker run -it --rm -v `pwd`:/data:Z sjourdan/outguess -d message.txt original.jpg destination.jpg
+
+* Recover delivered.txt from destination.jpg:
+
+    $ docker run -it --rm -v `pwd`:/data:Z sjourdan/outguess -r destination.jpg delivered.txt
+    $ cat delivered.txt
+    all work and no play makes Jack a dull boy
+
+Enjoy.
+
+Original `README` follows:
+
 OutGuess 0.2
 --------------
 2001-02-12 - Niels Provos <provos@citi.umich.edu>
@@ -12,7 +32,7 @@ will be used as concrete example of data objects, though OutGuess can
 use any kind of data, as long as a handler is provided.
 
 OutGuess is available under the BSD software license.  It is
-completely free for any use including commercial.  
+completely free for any use including commercial.
 
 Please see each source file for its respective license.  OutGuess was
 developed in Germany.
@@ -110,9 +130,9 @@ Acknowledgments:
 OutGuess uses code from, attributions can also be found in the sources,
 
  Markus Kuhn's Stirmark software, see STIRMARK-README.
- 
+
  the Independent JPEG Group's JPEG software, see JPEG_README.
- 
+
  the Arc4 random number generator for OpenBSD, (c) 1996 by
  David Mazieres <dm@lcs.mit.edu>.
 
